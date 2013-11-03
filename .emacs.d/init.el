@@ -1,3 +1,14 @@
+(setq load-path
+      (append
+       (list
+        (expand-file-name "~/.emacs.d/")
+	(expand-file-name "~/.emacs.d/elisp/el-get/el-get/")
+	(expand-file-name "~/.emacs.d/elisp/el-get/go-mode/")
+
+        (expand-file-name "~/.emacs.d/el-get/"))
+       load-path))
+
+
 (define-key global-map [2213] nil)
 (define-key global-map [67111077] nil)
 (define-key global-map [134219941] nil)
@@ -43,4 +54,21 @@
 (add-to-list 'exec-path (expand-file-name "/usr/lib/go/bin/"))
 
 
+
+;; for color theme
+(require 'color-theme)
+(color-theme-initialize)
+(color-theme-clarity)
+
+
+
+
+(unless (require 'el-get nil 'noerror)
+  (with-current-buffer
+      (url-retrieve-synchronously
+       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
+    (goto-char (point-max))
+    (eval-print-last-sexp)))
+
+(el-get 'sync)
 
