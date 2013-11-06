@@ -4,10 +4,11 @@
         (expand-file-name "~/.emacs.d/")
 	(expand-file-name "~/.emacs.d/elisp/el-get/el-get/")
 	(expand-file-name "~/.emacs.d/elisp/el-get/go-mode/")
-
+	(expand-file-name "~/.emacs.d/el-get/color-theme")
         (expand-file-name "~/.emacs.d/el-get/"))
        load-path))
 
+(require 'el-get)
 
 (define-key global-map [2213] nil)
 (define-key global-map [67111077] nil)
@@ -17,7 +18,7 @@
 (define-key function-key-map [67111077] [?\C-\\])
 (define-key function-key-map [134219941] [?\M-\\])
 (define-key function-key-map [201328805] [?\C-\M-\\])
- 
+
 (define-key global-map [3420] nil)
 (define-key global-map [67112284] nil)
 (define-key global-map [134221148] nil)
@@ -59,9 +60,6 @@
 (require 'color-theme)
 (color-theme-initialize)
 (color-theme-clarity)
-
-
-
 
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
