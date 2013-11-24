@@ -11,29 +11,29 @@
 	url = http://github.com/dimitri/el-get.git
 
 [submodule ".emacs.d/elisp/el-get/anything"]
-path = .emacs.d/elisp/el-get/anything
-url = http://repo.or.cz/r/anything-config.git
+	path = .emacs.d/elisp/el-get/anything
+	url = http://repo.or.cz/r/anything-config.git
 
 [submodule ".emacs.d/elisp/el-get/auto-complete"]
-    path = .emacs.d/elisp/el-get/auto-complete
-    url = http://github.com/auto-complete/auto-complete.git
+	path = .emacs.d/elisp/el-get/auto-complete
+	url = http://github.com/auto-complete/auto-complete.git
 
 [submodule ".emacs.d/elisp/el-get/distel"]
-	   path = .emacs.d/elisp/el-get/distel
-	   url = http://github.com/massemanet/distel.git
+	path = .emacs.d/elisp/el-get/distel
+	url = http://github.com/massemanet/distel.git
 
 [submodule ".emacs.d/elisp/el-get/fuzzy"]
-path = .emacs.d/elisp/el-get/fuzzy
-url = http://github.com/auto-complete/fuzzy-el.git
+	path = .emacs.d/elisp/el-get/fuzzy
+	url = http://github.com/auto-complete/fuzzy-el.git
 
 [submodule "emacs.d/elisp/el-get/ghc-mod"]
-	   path = .emacs.d/elisp/el-get/ghc-mod
-	   url = http://github.com/kazu-yamamoto/ghc-mod.git
+	path = .emacs.d/elisp/el-get/ghc-mod
+	url = http://github.com/kazu-yamamoto/ghc-mod.git
 
 [submodule ".emacs.d/elisp/el-get/lua-mode"]
-path = .emacs.d/elisp/el-get/lua-mode
-url = https://github.com/immerrr/lua-mode
+	path = .emacs.d/elisp/el-get/lua-mode
+	url = https://github.com/immerrr/lua-mode
 
 [submodule ".emacs.d/elisp/el-get/popup"]
-path = .emacs.d/elisp/el-get/popup
-url = http://github.com/auto-complete/popup-el.git
+	path = .emacs.d/elisp/el-get/popup
+	url = http://github.com/auto-complete/popup-el.git
