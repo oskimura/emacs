@@ -47,15 +47,6 @@
 (require 'auto-save-buffers)
 (run-with-idle-timer 1 t 'auto-save-buffers)
 
-
-
-;; for go
-(add-to-list 'load-path "/usr/lib/go/src/pkg/github.com/dougm/goflymake/")
-(require 'go-flymake)
-(add-to-list 'exec-path (expand-file-name "/usr/lib/go/bin/"))
-
-
-
 ;; for color theme
 (require 'color-theme)
 (color-theme-initialize)
@@ -70,3 +61,8 @@
 
 (el-get 'sync)
 
+
+;; for go
+;;(add-to-list 'load-path "/usr/lib/go/src/pkg/github.com/dougm/goflymake/")
+;;(require 'go-flymake)
+;;(add-to-list 'exec-path (expand-file-name "/usr/lib/go/bin/"))
