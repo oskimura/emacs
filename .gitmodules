@@ -14,7 +14,7 @@
 path = .emacs.d/elisp/el-get/anything
 url = http://repo.or.cz/r/anything-config.git
 
-[submodule ".emacs.d/elisp/el-get/auto-complete/"]
+[submodule ".emacs.d/elisp/el-get/auto-complete"]
     path = .emacs.d/elisp/el-get/auto-complete
     url = http://github.com/auto-complete/auto-complete.git
 
