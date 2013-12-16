@@ -31,10 +31,8 @@
 
 (show-paren-mode)
  
- 
 ;;display time
 (display-time)
-
 
 
 (load "~/.emacs.d/haskell-mode/haskell-site-file")
@@ -43,15 +41,26 @@
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 
+
 (add-to-list 'load-path "~/.emacs.d")
 (require 'auto-save-buffers)
 (run-with-idle-timer 1 t 'auto-save-buffers)
+
+ 
+;; for go
+;;(add-to-list 'load-path "/usr/lib/go/src/pkg/github.com/dougm/goflymake/")
+;;(require 'go-flymake)
+;;(add-to-list 'exec-path (expand-file-name "/usr/lib/go/bin/"))
+
+
 
 ;; for color theme
 (require 'color-theme)
 (color-theme-initialize)
 (color-theme-clarity)
 
+
+;; for el-get
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
       (url-retrieve-synchronously
@@ -62,7 +71,17 @@
 (el-get 'sync)
 
 
-;; for go
-;;(add-to-list 'load-path "/usr/lib/go/src/pkg/github.com/dougm/goflymake/")
-;;(require 'go-flymake)
-;;(add-to-list 'exec-path (expand-file-name "/usr/lib/go/bin/"))
+;;;; This snippet enables lua-mode
+;; This line is not necessary, if lua-mode.el is already on your load-path
+(add-to-list 'load-path "~/emacs/.emacs.d/el-get/lua-mode/")
+
+(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
+(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
+(add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
+
+
+(add-to-list 'load-path "~/emacs/.emacs.d/el-get/flymake-lua/")
+(require 'flymake-lua)
+(add-hook 'lua-mode-hook 'flymake-lua-load)
+
+(setq (cons "/opt/local/bin" exec-path))
