@@ -8,8 +8,6 @@
         (expand-file-name "~/.emacs.d/el-get/"))
        load-path))
 
-(require 'el-get)
-
 (define-key global-map [2213] nil)
 (define-key global-map [67111077] nil)
 (define-key global-map [134219941] nil)
@@ -34,13 +32,34 @@
 ;;display time
 (display-time)
 
-
 ;; デフォルトの透明度を設定する (85%)
 (add-to-list 'default-frame-alist '(alpha . 85))
 ;; カレントウィンドウの透明度を変更する (85%)
 (set-frame-parameter nil 'alpha 85)
 
 
+(require 'el-get)
+
+
+;; for el-get
+(unless (require 'el-get nil 'noerror)
+  (with-current-buffer
+      (url-retrieve-synchronously
+       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
+    (goto-char (point-max))
+    (eval-print-last-sexp)))
+(el-get 'sync)
+;; auto install el-get.el
+(defvar my/el-get-packages
+  '(
+    open-github-from-here
+    anything-git-files
+    )
+  "A list of packages to install from el-get at launch.")
+(el-get 'sync my/el-get-packages)
+
+
+;; for haskell
 (load "~/.emacs.d/haskell-mode/haskell-site-file")
 
 (add-to-list 'load-path "~/.emacs.d/haskell-mode")
@@ -66,15 +85,6 @@
 (color-theme-clarity)
 
 
-;; for el-get
-(unless (require 'el-get nil 'noerror)
-  (with-current-buffer
-      (url-retrieve-synchronously
-       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
-    (goto-char (point-max))
-    (eval-print-last-sexp)))
-
-(el-get 'sync)
 
 
 ;;;; This snippet enables lua-mode
