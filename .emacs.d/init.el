@@ -38,10 +38,12 @@
 (set-frame-parameter nil 'alpha 85)
 
 
-(require 'el-get)
+
 
 
 ;; for el-get
+(require 'el-get)
+
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
       (url-retrieve-synchronously
@@ -57,6 +59,31 @@
     )
   "A list of packages to install from el-get at launch.")
 (el-get 'sync my/el-get-packages)
+
+
+;; for package.el
+;; Package Manegement
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(opackage-initialize)
+;; auto install
+(require 'cl)
+(defvar installing-package-list
+  '(
+    ;; package list
+    evil
+    evil-leader
+    evil-numbers
+    evil-nerd-commenter
+    ))
+(let ((not-installed (loop for x in installing-package-list
+                            when (not (package-installed-p x))
+                            collect x)))
+  (when not-installed
+    (package-refresh-contents)
+    (dolist (pkg not-installed)
+        (package-install pkg))))
 
 
 ;; for haskell
