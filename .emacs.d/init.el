@@ -35,6 +35,12 @@
 (display-time)
 
 
+;; デフォルトの透明度を設定する (85%)
+(add-to-list 'default-frame-alist '(alpha . 85))
+;; カレントウィンドウの透明度を変更する (85%)
+(set-frame-parameter nil 'alpha 85)
+
+
 (load "~/.emacs.d/haskell-mode/haskell-site-file")
 
 (add-to-list 'load-path "~/.emacs.d/haskell-mode")
@@ -84,4 +90,19 @@
 (require 'flymake-lua)
 (add-hook 'lua-mode-hook 'flymake-lua-load)
 
-(setq (cons "/opt/local/bin" exec-path))
+;;(setq (cons "/opt/local/bin" exec-path))
+
+
+
+;; for erlang
+;;(add-to-list 'load-path "~/emacs/.emacs.d/el-get/distel")
+;(require 'distel)
+;;(distel-setup)
+
+;; for erlang
+(setq load-path (cons "~/emacs/.emacs.d/el-get/erlware-mode" load-path))
+(setq erlang-man-root-dir "/usr/local/otp")
+(setq exec-path (cons "/opt/local/bin/" exec-path))
+(require 'erlang-start)
+
+
