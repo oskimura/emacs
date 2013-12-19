@@ -54,8 +54,7 @@
 ;; auto install el-get.el
 (defvar my/el-get-packages
   '(
-    open-github-from-here
-    anything-git-files
+    ;; package list
     )
   "A list of packages to install from el-get at launch.")
 (el-get 'sync my/el-get-packages)
@@ -66,16 +65,12 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(opackage-initialize)
+(package-initialize)
 ;; auto install
 (require 'cl)
 (defvar installing-package-list
   '(
     ;; package list
-    evil
-    evil-leader
-    evil-numbers
-    evil-nerd-commenter
     ))
 (let ((not-installed (loop for x in installing-package-list
                             when (not (package-installed-p x))
