@@ -69,6 +69,7 @@
   '(
     ;; package list
     session
+    helm
     )
   "A list of packages to install from el-get at launch.")
 (el-get 'sync my/el-get-packages)
@@ -158,3 +159,8 @@
 (add-hook 'after-init-hook 'session-initialize)
 (setq session-undo-check -1)
 
+;; for helm
+(setq load-path (cons "~/.emacs.d/el-get/helm" load-path))
+(require 'helm-config nil t)
+(global-set-key (kbd "C-c h") 'helm-mini)
+(helm-mode 1)
