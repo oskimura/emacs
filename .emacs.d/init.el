@@ -37,6 +37,8 @@
 ;; カレントウィンドウの透明度を変更する (85%)
 (set-frame-parameter nil 'alpha 85)
 
+;; メニューバー削除
+(tool-bar-mode -1)
 
 
 
