@@ -68,6 +68,7 @@
 (defvar my/el-get-packages
   '(
     ;; package list
+    session
     )
   "A list of packages to install from el-get at launch.")
 (el-get 'sync my/el-get-packages)
@@ -150,4 +151,10 @@
 (setq exec-path (cons "/opt/local/bin/" exec-path))
 (require 'erlang-start)
 
+
+;; for session
+(setq load-path (cons "~/emacs/.emacs.d/el-get/session/lisp" load-path))
+(require 'session)
+(add-hook 'after-init-hook 'session-initialize)
+(setq session-undo-check -1)
 
