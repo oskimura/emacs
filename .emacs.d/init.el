@@ -40,6 +40,17 @@
 ;; メニューバー削除
 (tool-bar-mode -1)
 
+;全角スペースに緑の色づけ。全角スペースは罠だよ =(
+(defface my-face-b-1 '((t (:background "green"))) nil)
+(defvar my-face-b-1 'my-face-b-1)
+(defadvice font-lock-mode (before my-font-lock-mode ())
+ (font-lock-add-keywords
+  major-mode
+  '(("　" 0 my-face-b-1 append)
+  )))
+(ad-enable-advice 'font-lock-mode 'before 'my-font-lock-mode)
+(ad-activate 'font-lock-mode)
+
 
 
 
