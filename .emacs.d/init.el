@@ -51,8 +51,9 @@
 (ad-enable-advice 'font-lock-mode 'before 'my-font-lock-mode)
 (ad-activate 'font-lock-mode)
 
-
-
+;; mac ならcommandキーをメタキーにする
+(when (eq system-type 'darwin)
+  (setq ns-command-modifier (quote meta)))
 
 ;; for el-get
 (require 'el-get)
