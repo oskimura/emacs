@@ -65,7 +65,13 @@
     (goto-char (point-max))
     (eval-print-last-sexp)))
 (el-get 'sync)
-;; auto install el-get.el
+;;auto install el-get.el
+(setq el-get-sources
+      '((:name auto-highlight-symbol
+               :type github
+               :pkgname "emacsmirror/auto-highlight-symbol")
+	 ))
+
 (defvar my/el-get-packages
   '(
     ;; package list
@@ -75,6 +81,8 @@
     multiple-cursors
     expand-region
     smartrep
+    highlight-symbol
+    ;;auto-highlight-symbol
     )
   "A list of packages to install from el-get at launch.")
 (el-get 'sync my/el-get-packages)
@@ -185,3 +193,10 @@
  global-map "C-." '(("C-n" . 'mc/mark-next-like-this)
                     ("C-p" . 'mc/mark-previous-like-this)
                     ("*"   . 'mc/mark-all-like-this)))
+
+
+(require 'highlight-symbol)
+(global-set-key (kbd "<f3>") 'highlight-symbol-at-point)
+(global-set-key (kbd "M-<f3>") 'highlight-symbol-remove-all)
+(setq load-path (cons "~/.emacs.d/el-get/auto-highlight-symbol" load-path))
+(require 'auto-highlight-symbol-config)
