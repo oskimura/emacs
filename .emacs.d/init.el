@@ -72,6 +72,9 @@
     session
     helm
     revive
+    multiple-cursors
+    expand-region
+    smartrep
     )
   "A list of packages to install from el-get at launch.")
 (el-get 'sync my/el-get-packages)
@@ -166,3 +169,19 @@
 (require 'helm-config nil t)
 (global-set-key (kbd "C-c h") 'helm-mini)
 (helm-mode 1)
+
+
+
+;; for multiple-cursors, expand-region, smartrep
+(require 'expand-region)
+(require 'multiple-cursors)
+(require 'smartrep)
+
+(global-set-key (kbd "C-,") 'er/expand-region)
+(global-set-key (kbd "C-M-,") 'er/contract-region)
+
+(global-set-key (kbd "<C-M-return>") 'mc/edit-lines)
+(smartrep-define-key
+ global-map "C-." '(("C-n" . 'mc/mark-next-like-this)
+                    ("C-p" . 'mc/mark-previous-like-this)
+                    ("*"   . 'mc/mark-all-like-this)))
