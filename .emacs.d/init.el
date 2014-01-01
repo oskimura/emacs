@@ -77,6 +77,11 @@
 	(:name emacs-git-gutter
 	       :type github
                :pkgname "syohex/emacs-git-gutter")
+
+	(:name anything-git-files
+	       :type github
+	       :pkgname "tarao/anything-git-files-el"
+	       :depends anything)
 	 ))
 
 (defvar my/el-get-packages
@@ -93,6 +98,7 @@
     ;;fringe-helper
     ;;emacs-git-gutter-fringe
     ;;auto-highlight-symbol
+    ;;anything-git-files
     )
   "A list of packages to install from el-get at launch.")
 (el-get 'sync my/el-get-packages)
@@ -221,3 +227,6 @@
 (require 'git-gutter-fringe)
 (global-git-gutter-mode)
 
+;; for anything-git-files
+(setq load-path (cons "~/.emacs.d/el-get/anything-git-files" load-path))
+(require 'anything-git-files)
