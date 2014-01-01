@@ -70,6 +70,13 @@
       '((:name auto-highlight-symbol
                :type github
                :pkgname "emacsmirror/auto-highlight-symbol")
+
+	(:name emacs-git-gutter-fringe
+               :type github
+               :pkgname "syohex/emacs-git-gutter-fringe")
+	(:name emacs-git-gutter
+	       :type github
+               :pkgname "syohex/emacs-git-gutter")
 	 ))
 
 (defvar my/el-get-packages
@@ -82,11 +89,13 @@
     expand-region
     smartrep
     highlight-symbol
+    ;;emacs-git-gutter
+    ;;fringe-helper
+    ;;emacs-git-gutter-fringe
     ;;auto-highlight-symbol
     )
   "A list of packages to install from el-get at launch.")
 (el-get 'sync my/el-get-packages)
-
 
 ;; for package.el
 ;; Package Manegement
@@ -200,3 +209,15 @@
 (global-set-key (kbd "M-<f3>") 'highlight-symbol-remove-all)
 (setq load-path (cons "~/.emacs.d/el-get/auto-highlight-symbol" load-path))
 (require 'auto-highlight-symbol-config)
+
+;; for git-gutter fringe-helper git-gutter-fringe
+(setq load-path (cons "~/.emacs.d/el-get/emacs-git-gutter" load-path))
+(require 'git-gutter)
+(global-git-gutter-mode t)
+
+(setq load-path (cons "~/.emacs.d/el-get/fringe-helper" load-path))
+(setq load-path (cons "~/.emacs.d/el-get/emacs-git-gutter-fringe" load-path))
+
+(require 'git-gutter-fringe)
+(global-git-gutter-mode)
+
