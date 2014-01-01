@@ -26,6 +26,8 @@
 (define-key function-key-map [134221148] [?\M-\\])
 (define-key function-key-map [201330012] [?\C-\M-\\])
 
+;; ^hでBack Space
+(global-set-key "\C-h" 'delete-backward-char)
 
 (show-paren-mode)
  
