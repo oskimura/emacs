@@ -82,6 +82,9 @@
 	       :type github
 	       :pkgname "tarao/anything-git-files-el"
 	       :depends anything)
+	(:name exec-path-from-shell
+	       :type github
+	       :pkgname "purcell/exec-path-from-shell")
 	 ))
 
 (defvar my/el-get-packages
@@ -99,6 +102,7 @@
     ;;emacs-git-gutter-fringe
     ;;auto-highlight-symbol
     ;;anything-git-files
+    ;;exec-path-from-shell
     )
   "A list of packages to install from el-get at launch.")
 (el-get 'sync my/el-get-packages)
@@ -230,3 +234,9 @@
 ;; for anything-git-files
 (setq load-path (cons "~/.emacs.d/el-get/anything-git-files" load-path))
 (require 'anything-git-files)
+
+;; for exec-path-from-shell
+(setq load-path (cons "~/.emacs.d/el-get/exec-path-from-shell" load-path))
+(require 'exec-path-from-shell)
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
