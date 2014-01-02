@@ -29,6 +29,10 @@
 ;; ^hでBack Space
 (global-set-key "\C-h" 'delete-backward-char)
 
+;; インデントを4のホワイトスペースにする
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width)
+
 (show-paren-mode)
  
 ;;display time
