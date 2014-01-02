@@ -91,6 +91,9 @@
 	(:name exec-path-from-shell
 	       :type github
 	       :pkgname "purcell/exec-path-from-shell")
+        	(:name init-loader
+	       :type github
+	       :pkgname "emacs-jp/init-loader")
 	 ))
 
 (defvar my/el-get-packages
@@ -109,6 +112,7 @@
     ;;auto-highlight-symbol
     ;;anything-git-files
     ;;exec-path-from-shell
+    ;;init-loader
     )
   "A list of packages to install from el-get at launch.")
 (el-get 'sync my/el-get-packages)
@@ -246,3 +250,20 @@
 (require 'exec-path-from-shell)
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
+
+;; for init-loader
+(setq load-path (cons "~/.emacs.d/el-get/init-loader" load-path))
+(require 'init-loader)
+(setq init-loader-show-log-after-init nil)
+(init-loader-load "~/.emacs.d/inits")
+;; エラーが起きたときにどのファイルにエラーがあるか特定できます
+(defun init-loader-re-load (re dir &optional sort)
+  (let ((load-path (cons dir load-path)))
+    (dolist (el (init-loader--re-load-files re dir sort))
+      (condition-case e
+          (let ((time (car (benchmark-run (load (file-name-sans-extension el))))))
+            (init-loader-log (format "loaded %s. %s" (locate-library el) time)))
+        (error
+         ;; (init-loader-error-log (error-message-string e)) ；削除
+         (init-loader-error-log (format "%s. %s" (locate-library el) (error-message-string e))) ;追加
+         )))))
