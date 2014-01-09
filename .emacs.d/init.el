@@ -113,6 +113,7 @@
     ;;anything-git-files
     ;;exec-path-from-shell
     ;;init-loader
+    auto-complete
     )
   "A list of packages to install from el-get at launch.")
 (el-get 'sync my/el-get-packages)
@@ -267,3 +268,11 @@
          ;; (init-loader-error-log (error-message-string e)) ；削除
          (init-loader-error-log (format "%s. %s" (locate-library el) (error-message-string e))) ;追加
          )))))
+
+;; for auto-complete
+(setq load-path (cons "~/.emacs.d/el-get/auto-complete" load-path))
+(require 'auto-complete)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/el-get/auto-completion-mode/dict")
+(require 'auto-complete-config)
+(ac-config-default)
+(global-auto-complete-mode t)
