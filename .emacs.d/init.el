@@ -114,6 +114,7 @@
     ;;exec-path-from-shell
     ;;init-loader
     auto-complete
+    yasnippet
     )
   "A list of packages to install from el-get at launch.")
 (el-get 'sync my/el-get-packages)
@@ -209,7 +210,6 @@
 (helm-mode 1)
 
 
-
 ;; for multiple-cursors, expand-region, smartrep
 (require 'expand-region)
 (require 'multiple-cursors)
@@ -276,3 +276,12 @@
 (require 'auto-complete-config)
 (ac-config-default)
 (global-auto-complete-mode t)
+
+;; for yasnippet
+(setq load-path (cons "~/.emacs.d/el-get/yasnippet" load-path))
+(require 'yasnippet)
+(setq yas-snippet-dirs
+      '("~/.emacs.d/snippet/snippets"
+        "~/.emacs.d/el-get/yasnippet/snippets"))
+(yas-global-mode 1)
+(custom-set-variables '(yas-trigger-key "TAB"))
