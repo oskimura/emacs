@@ -208,6 +208,8 @@
 (require 'helm-config nil t)
 (global-set-key (kbd "C-c h") 'helm-mini)
 (helm-mode 1)
+;;; 処理を変更したいコマンドをリストに登録していく
+(add-to-list 'helm-completing-read-handlers-alist '(find-file . nil))
 
 
 ;; for multiple-cursors, expand-region, smartrep
