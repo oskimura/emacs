@@ -80,7 +80,7 @@
 	(:name emacs-git-gutter-fringe
                :type github
                :pkgname "syohex/emacs-git-gutter-fringe")
-	(:name emacs-git-gutter
+        (:name emacs-git-gutter
 	       :type github
                :pkgname "syohex/emacs-git-gutter")
 
@@ -292,3 +292,12 @@
 (setq windmove-wrap-around t)
 ;; Shift + ↓ or → or ← or ↑
 (windmove-default-keybindings)
+
+;; タブを強調表示　
+(setq whitespace-style
+      '(tabs tab-mark spaces space-mark))
+(setq whitespace-display-mappings
+      '((tab-mark   ?\t   [?\xBB ?\t])
+        ))
+(require 'whitespace)
+(global-whitespace-mode 1)
