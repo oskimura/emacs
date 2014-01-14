@@ -287,3 +287,8 @@
         "~/.emacs.d/el-get/yasnippet/snippets"))
 (yas-global-mode 1)
 (custom-set-variables '(yas-trigger-key "TAB"))
+
+;;; バッファ移動
+(setq windmove-wrap-around t)
+;; Shift + ↓ or → or ← or ↑
+(windmove-default-keybindings)
