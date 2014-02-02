@@ -195,6 +195,9 @@
 (setq erlang-man-root-dir "/usr/local/otp")
 (setq exec-path (cons "/opt/local/bin/" exec-path))
 (require 'erlang-start)
+;; distel-setup
+(setq load-path (cons "~/.emacs.d/el-get/distel/elisp" load-path))
+(require 'distel)
 
 
 ;; for session
