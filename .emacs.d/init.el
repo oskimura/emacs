@@ -304,3 +304,8 @@
         ))
 (require 'whitespace)
 (global-whitespace-mode 1)
+
+;; for javascript
+(setq load-path (cons "~/.emacs.d/el-get/js2-mode/" load-path))
+(autoload 'js2-mode "js2-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
