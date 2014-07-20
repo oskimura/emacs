@@ -94,6 +94,9 @@
         (:name init-loader
 	       :type github
 	       :pkgname "emacs-jp/init-loader")
+        (:name flycheck 
+               :type github
+               :pkgname "flycheck/flycheck")
         ))
 
 
@@ -116,6 +119,7 @@
     ;;init-loader
     auto-complete
     yasnippet
+    ;;flycheck
     )
   "A list of packages to install from el-get at launch.")
 (el-get 'sync my/el-get-packages)
@@ -312,3 +316,7 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (setq js-indent-level 2)
 
+;; flycheck
+(setq load-path (cons "~/.emacs.d/el-get/flycheck/" load-path))
+(add-hook 'after-init-hook #'global-flycheck-mode)
+(add-hook 'haskell-mode 'flycheck-mode)
