@@ -31,7 +31,7 @@
 
 ;; インデントを4のホワイトスペースにする
 (setq-default indent-tabs-mode nil)
-(setq-default tab-width)
+(setq-default tab-width 4)
 
 (show-paren-mode)
  
@@ -91,10 +91,11 @@
 	(:name exec-path-from-shell
 	       :type github
 	       :pkgname "purcell/exec-path-from-shell")
-        	(:name init-loader
+        (:name init-loader
 	       :type github
 	       :pkgname "emacs-jp/init-loader")
-	 ))
+        ))
+
 
 (defvar my/el-get-packages
   '(
@@ -309,3 +310,5 @@
 (setq load-path (cons "~/.emacs.d/el-get/js2-mode/" load-path))
 (autoload 'js2-mode "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(setq js-indent-level 2)
+
