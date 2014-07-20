@@ -1,0 +1,8 @@
+(source gnu)
+(source melpa)
+
+        
+
+(depends-on "cperl-mode")
+(depends-on "flycheck-haskell")
+(depends-on "rainbow-delimiters")

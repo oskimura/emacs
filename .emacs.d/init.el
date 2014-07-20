@@ -320,3 +320,12 @@
 (setq load-path (cons "~/.emacs.d/el-get/flycheck/" load-path))
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (add-hook 'haskell-mode 'flycheck-mode)
+
+;; for cask 
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
+(setq load-path (cons "~/.emacs/.cask/24.3.1/elpa/flycheck-haskell-20140610.629/" load-path))
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
+(require 'rainbow-delimiters)
+(global-rainbow-delimiters-mode t)
