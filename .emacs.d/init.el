@@ -31,7 +31,7 @@
 
 ;; インデントを4のホワイトスペースにする
 (setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
+(setq-default tab-width)
 
 (show-paren-mode)
  
